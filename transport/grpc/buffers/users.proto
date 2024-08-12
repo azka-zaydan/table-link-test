@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+service Users {
+    rpc CreateUser(CreateUserReq) returns (User) {}
+    rpc UpdateUser()
+}
+
+message User {
+    int8 id = 1;
+    int8 role_id= 2;
+    string email = 3;
+    string password = 4;
+    string name = 5;
+    google.protobuf.Timestamp last_access = 6;
+    google.protobuf.Timestamp created_at = 7;
+    google.protobuf.Timestamp updated_at = 8;
+    google.protobuf.Timestamp deleted_at = 9;
+}
+
+message CreateUserReq {
+    int8 role_id= 2;
+    string email = 3;
+    string password = 4;
+    string name = 5;
+}
+
+message UpdateUserReq {
+    string name = 1;
+}
