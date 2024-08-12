@@ -5,6 +5,7 @@ package main
 import (
 	"github.com/azka-zaydan/table-link-test/configs"
 	"github.com/azka-zaydan/table-link-test/shared/logger"
+	grpcRouter "github.com/azka-zaydan/table-link-test/transport/grpc/router"
 )
 
 var config *configs.Config
@@ -20,6 +21,7 @@ func main() {
 	// Set desired log level
 	logger.SetLogLevel(config)
 
+	grpcRouter.Start(config)
 	// Wire everything up
 	// http := InitializeService()
 
